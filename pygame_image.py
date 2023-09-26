@@ -3,7 +3,7 @@ import pygame as pg
 
 def main():
     pg.display.set_caption("はばたけ！こうかとん")
-    screen = pg.display.set_mode((1600, 900))
+    screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex01/fig/3.png")
@@ -16,6 +16,12 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
+
+        if tmr % 2 == 0:
+            screen.blit(kk_imgs[0], [300, 200])
+        else:
+            screen.blit(kk_imgs[1], [300, 200])
+            
         pg.display.update()
         tmr += 1        
         clock.tick(10)
